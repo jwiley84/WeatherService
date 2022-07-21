@@ -23,8 +23,39 @@ namespace WeatherService.Controllers
         {
             WeatherForecast forecast = WeatherService.Implementations.WeatherForecastImplementation.GetWeatherForecast();
 
-            //todo: set Summary value on forecast response using Summaries data dictionary
-
+            int temp = forecast.temp_C;
+            if (temp >= 43)
+            {
+                forecast.summary = Summaries[43];
+            }
+            else if (temp >= 38)
+            {
+                forecast.summary = Summaries[38];
+            }
+            else if (temp >= 32)
+            {
+                forecast.summary = Summaries[32];
+            }
+            else if (temp >=27)
+            {
+                forecast.summary = Summaries[27];
+            }
+            else if (temp >= 21)
+            {
+                forecast.summary = Summaries[21];
+            } 
+            else if (temp >= 10)
+            {
+                forecast.summary = Summaries[10];
+            } 
+            else if (temp >= 4)
+            {
+                forecast.summary = Summaries[4];
+            }
+            else
+            {
+                forecast.summary = Summaries[0];
+            }
             return forecast;
         }
     }
